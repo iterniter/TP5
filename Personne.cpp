@@ -47,16 +47,16 @@ void Personne::setPreferenceGout(TYPE_GUSTATIF nouvellePreference)
 
 /****************************************************************************
 * Fonction:	Personne::verifierAllergies
-* Description: VÈrifie si l'allergie passÈe en parametre est dans listeAllergies_
+* Description: V√©rifie si l'allergie pass√©e en parametre est dans listeAllergies_
 * Parametres:	- (const string&) allergie
 * Retour:		- (bool) present
 ****************************************************************************/
 bool Personne::verifierAllergies(const string& allergie)
 {
-	list<string>::iterator iter;
+	
 	bool present = false;
 
-	for (iter = listeAllergies_.begin(); iter != listeAllergies_.end(); ++iter)
+	for (list<string>::iterator iter = listeAllergies_.begin(); iter != listeAllergies_.end(); ++iter)
 	{
 		if (*iter == allergie)
 			present = true;
@@ -67,7 +67,7 @@ bool Personne::verifierAllergies(const string& allergie)
 
 /****************************************************************************
 * Fonction:	Personne::ajouterAllergies
-* Description: Ajoute l'allergie passÈe en parametre dans listeAllergies_ si elle n'est pas dej‡ prÈsente
+* Description: Ajoute l'allergie pass√©e en parametre dans listeAllergies_ si elle n'est pas dej√† pr√©sente
 * Parametres:	- (const string&) allergie
 * Retour:		aucun
 ****************************************************************************/
