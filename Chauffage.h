@@ -8,7 +8,7 @@ class Chauffage : public ObjetConnecte
 public:
 	Chauffage(unsigned int id);
 	~Chauffage();
-	void recevoirMessage(Message* message);
+	void recevoirMessage(Message* message); // recevoirMessage prend un pointeur en parametre
 	bool estAutomatique() const;
 	void setAutomatique(bool value);
 

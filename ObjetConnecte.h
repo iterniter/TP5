@@ -11,8 +11,8 @@ public:
 	ObjetConnecte(unsigned int id);
 	bool seConnecter(Routeur* routeur);
 	void seDeconnecter();
-	void envoyerMessage(Message* message);
-	virtual void recevoirMessage(Message* message) = 0;
+	void envoyerMessage(Message* message); // envoyerMessage prend un pointeur en parametre
+	virtual void recevoirMessage(Message* message) = 0; // recevoirMessage prend un pointeur en parametre
 
 	unsigned int getId() const;
 	bool isConnected() const;

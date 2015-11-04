@@ -10,6 +10,9 @@ Description: Cette classe represente un message permettant de communiquer entre 
 #define MESSAGE_H
 
 #include "enumTypes.h"
+#include <string>
+
+using namespace std;
 
 class Message
 {
@@ -24,7 +27,9 @@ public:
 	unsigned int getDest() const;
 	TYPE_MESSAGE getType() const;
 
-// TP5 A COMPLETER
+	// TP5 A COMPLETER
+	string obtenirNomClasse() const; // Renvoie un string contenant le nom de la classe
+
 private:
 	// Attribut représentant l'ID de l'objet source (expéditeur)
 	unsigned int idSrc_;

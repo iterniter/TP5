@@ -3,6 +3,24 @@
 
 using namespace std;
 
+// Nouveau au TP5 :
+
+/****************************************************************************
+* Fonction:	ObjetConnecte::envoyerMessage
+* Description: Envoie le message passé en parametre au routeur, à condition que cet objet soit connecte au routeur
+* Parametres:	- (Message*) message
+* Retour:		aucun
+****************************************************************************/
+void ObjetConnecte::envoyerMessage(Message *message)
+{
+	if (estConnecte_)
+	{
+		routeur_->acheminerMessage(message);
+	}
+}
+
+// Avant TP5 :
+
 ObjetConnecte::ObjetConnecte(unsigned int id) : id_(id), estConnecte_(false)
 {
 }
@@ -34,13 +52,7 @@ void ObjetConnecte::seDeconnecter()
 	}
 }
 
-void ObjetConnecte::envoyerMessage(Message *message)
-{
-	if (estConnecte_)
-	{
-		routeur_->acheminerMessage(message);
-	}
-}
+
 
 void ObjetConnecte::setIsConnected(bool value)
 {

@@ -6,6 +6,9 @@
 #include "Chauffage.h"
 #include "Maison.h"
 #include "Message.h"
+#include <map>
+
+using namespace std;
 
 class Routeur
 {
@@ -17,7 +20,7 @@ public:
 	void acheminerMessage(Message* message) const {};
 
 private:
-	
+	map<unsigned int, ObjetConnecte*> mapObjetConnecte_;
 };
 
 #endif
