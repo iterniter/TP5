@@ -10,6 +10,21 @@ Description: Cette classe represente un message permettant de communiquer entre 
 
 using namespace std;
 
+// Nouveau au TP5 :
+
+/****************************************************************************
+* Fonction:	Message::obtenirNomClasse
+* Description: Retourne un string contenant le nom de la classe
+* Parametres:	aucun
+* Retour:		- (string) nom de la classe
+****************************************************************************/
+string Message::obtenirNomClasse() const
+{
+	return typeid(Message).name();
+}
+
+// Avant TP5 :
+
 Message::Message(unsigned int src, unsigned int dest, TYPE_MESSAGE type)
 	:idSrc_(src), idDest_(dest), type_(type)
 {
@@ -33,4 +48,3 @@ TYPE_MESSAGE Message::getType() const
 {
 	return type_;
 }
-// TP5 A COMPLETER

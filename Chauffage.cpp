@@ -3,14 +3,14 @@
 
 using namespace std;
 
-Chauffage::Chauffage(unsigned int id) : ObjetConnecte(id)
-{
-}
+// Nouveau au TP5 :
 
-Chauffage::~Chauffage()
-{
-}
-
+/****************************************************************************
+* Fonction:	Chauffage::recevoirMessage
+* Description: Permet l'affichage d'un message reçu : Utilise polymorphisme de la classe Message
+* Parametres:	- (Message*) message
+* Retour:		aucun
+****************************************************************************/
 void Chauffage::recevoirMessage(Message* message)
 {
 	if ((message->getType() == ALLUMAGE_AUTOMATIQUE && automatique_ && !allume_))
@@ -28,6 +28,16 @@ void Chauffage::recevoirMessage(Message* message)
 		cout << "Chauffage# " << id_ << ". Etteint." << endl;
 		allume_ = false;
 	}
+}
+
+// Avant TP5 :
+
+Chauffage::Chauffage(unsigned int id) : ObjetConnecte(id)
+{
+}
+
+Chauffage::~Chauffage()
+{
 }
 
 bool Chauffage::estAutomatique() const

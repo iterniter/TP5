@@ -10,8 +10,72 @@ using namespace std;
 ///__________________________________________________________________________________________________________________________
 
 // TP5 A COMPLETER
+/****************************************************************************
+* Fonction:	Personne::Personne
+* Description: Constructeur par parametres
+* Parametres:  - (string) nom : nom de la Personne
+*			   - (string) prenom : prenom de la Personne
+*              - (unsigned int) agePersonne : age de la Personne
+*              - (TYPE_GUSTATIF) preferenceGout
+* Retour:		aucun
+****************************************************************************/
+Personne::Personne(string nom, string prenom, unsigned int age, TYPE_GUSTATIF preferenceGout) : nom_(nom), prenom_(prenom), age_(age), preferenceGout_(preferenceGout), estALaMaison_(false), numeroCellulaire_(" ")
+{
+}
 
+/****************************************************************************
+* Fonction:	Personne::getPreferenceGout
+* Description: Getter
+* Parametres:	aucun
+* Retour:		- (TYPE_GUSTATIF) preferenceGout_
+****************************************************************************/
+TYPE_GUSTATIF Personne::getPreferenceGout() const
+{
+	return preferenceGout_;
+}
 
+/****************************************************************************
+* Fonction:	Personne::setPreferenceGout
+* Description: Setter
+* Parametres:	aucun
+* Retour:		- (TYPE_GUSTATIF) preferenceGout_
+****************************************************************************/
+void Personne::setPreferenceGout(TYPE_GUSTATIF nouvellePreference)
+{
+	preferenceGout_ = nouvellePreference;
+}
+
+/****************************************************************************
+* Fonction:	Personne::verifierAllergies
+* Description: Vérifie si l'allergie passée en parametre est dans listeAllergies_
+* Parametres:	- (const string&) allergie
+* Retour:		- (bool) present
+****************************************************************************/
+bool Personne::verifierAllergies(const string& allergie)
+{
+	list<string>::iterator iter;
+	bool present = false;
+
+	for (iter = listeAllergies_.begin(); iter != listeAllergies_.end(); ++iter)
+	{
+		if (*iter == allergie)
+			present = true;
+	}
+
+	return present;
+}
+
+/****************************************************************************
+* Fonction:	Personne::ajouterAllergies
+* Description: Ajoute l'allergie passée en parametre dans listeAllergies_ si elle n'est pas dejà présente
+* Parametres:	- (const string&) allergie
+* Retour:		aucun
+****************************************************************************/
+void Personne::ajouterAllergies(const string& allergie)
+{
+	if (!verifierAllergies(allergie))
+		listeAllergies_.push_back(allergie);
+}
 
 ///__________________________________________________________________________________________________________________________
 /// TP2
@@ -43,35 +107,23 @@ bool Personne::operator< (const Personne& personne) const
 	return plusPetit;
 }
 
-
-
 ostream& operator<<(ostream& o, const Personne& personne)
 {
 	return o << personne.nom_ << " , " << personne.prenom_
 		<< "\t-\t" << personne.age_ << " ans\t\t#" << personne.numeroCellulaire_ << "\n";
 }
 
-
-
-
-
-
 ///__________________________________________________________________________________________________________________________
 /// TP1
 ///__________________________________________________________________________________________________________________________
-
 Personne::Personne() : age_(0), estALaMaison_(false)
 {
 }
-
-
-
 
 Personne::~Personne()
 {
 
 }
-
 
 string Personne::getNom() const
 {
@@ -130,4 +182,9 @@ void Personne::attribuerCellulaire(string numeroCellulaire)
 string Personne::getNumeroCellulaire() const
 {
 	return numeroCellulaire_;
+}
+
+void Personne::setNumeroCellulaire(string nouveauNum)
+{
+	numeroCellulaire_ = nouveauNum;
 }

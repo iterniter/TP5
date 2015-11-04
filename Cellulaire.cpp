@@ -3,6 +3,24 @@
 
 using namespace std;
 
+// Nouveau au TP5 :
+
+/****************************************************************************
+* Fonction:	Cellulaire::recevoirMessage
+* Description: Permet l'affichage d'un message reçu : Utilise polymorphisme de la classe Message
+* Parametres:	- (Message*) message
+* Retour:		aucun
+****************************************************************************/
+void Cellulaire::recevoirMessage(Message* message)
+{
+	if (message->getType() == NOTIFICATION_VISITEUR)
+	{
+		cout << "Notification visiteur recue par le cellulaire de " << proprietaire_->getPrenom() << "." << endl;
+	}
+}
+
+// Avant le TP5 :
+
 Cellulaire::Cellulaire(unsigned int id) : ObjetConnecte(id)
 {
 }
@@ -52,14 +70,6 @@ void Cellulaire::setPosition(float position)
 {
 	gps_.setPosition(position);
 	this->notifierChangement();
-}
-
-void Cellulaire::recevoirMessage(Message* message)
-{
-	if (message->getType() == NOTIFICATION_VISITEUR)
-	{
-		cout << "Notification visiteur recue par le cellulaire de " << proprietaire_->getPrenom() << "." << endl;
-	}
 }
 
 string Cellulaire::obtenirNomClasse() const
