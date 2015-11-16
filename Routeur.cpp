@@ -21,9 +21,8 @@ Routeur::Routeur()
 ****************************************************************************/
 void Routeur::accepterConnexion(ObjetConnecte* obj)
 {
-	mapObjetConnecte_[obj->getId()] = obj;
+	mapObjetConnecte_.insert(pair<unsigned int, ObjetConnecte*>(obj->getId(), obj));
 }
-
 
 /****************************************************************************
 * Fonction:	Routeur::retirerConnexion
